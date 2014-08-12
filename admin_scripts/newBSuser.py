@@ -176,8 +176,8 @@ os.system("sudo adduser --disabled-login --quiet {name}".format(name=desiredUser
 os.system("sudo aduser {name} team".format(name=desiredUserName))
 os.system("sudo echo {name}:{password} | chpasswd".format(name=desiredUserName , password=desiredPassword)
 os.system("echo {name}@bluesat.unsw.edu.au | sudo var/lib/mailman/bin/ad_members -r - -w y -a n team".format(name=desiredUserName))
-os.system("/usr/bin/htpasswd -D /etc/apache2/auth/newmembers {name}".format(name=desiredUserName))
-os.system("/usr/bin/htpasswd -bm /etc/apache2/auth/members {name} {password}".format(name=desiredUserName , password=desiredPassword ))
+os.system("sudo /usr/bin/htpasswd -D /etc/apache2/auth/newmembers {name}".format(name=desiredUserName))
+os.system("sudo /usr/bin/htpasswd -bm /etc/apache2/auth/members {name} {password}".format(name=desiredUserName , password=desiredPassword ))
 
 # Crate email forwarding file
 # CHECK THIS WILL WORK CORRECTLY
